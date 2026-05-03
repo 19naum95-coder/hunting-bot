@@ -38,6 +38,39 @@ BINOCULARS_CHARGES = 5
 BIG_BACKPACK_SLOTS = 10
 BACKPACK_BASE_SLOTS = 50
 
+# Shop improvements (items purchasable with silver)
+SHOP_IMPROVEMENTS: dict[str, dict] = {
+    "big_backpack": {
+        "emoji": "🎒",
+        "name": "Расширение рюкзака",
+        "price": 500,
+        "desc": "Добавляет 10 слотов к рюкзаку (можно купить несколько раз)",
+    },
+    "dog": {
+        "emoji": "🐕",
+        "name": "Охотничья собака",
+        "price": 1000,
+        "desc": f"+{DOG_ACCURACY_BONUS}% точности навсегда (покупается один раз)",
+    },
+    "binoculars": {
+        "emoji": "🔭",
+        "name": "Бинокль",
+        "price": 800,
+        "desc": f"+{int(BINOCULARS_RARE_BONUS*100)}% шанс редкой добычи на {BINOCULARS_CHARGES} охот",
+    },
+    "luck_potion": {
+        "emoji": "🍀",
+        "name": "Зелье удачи",
+        "price": 1200,
+        "desc": f"+{LUCK_POTION_BONUS}% точности на {LUCK_POTION_CHARGES} охот",
+    },
+    "weapon_upgrade": {
+        "emoji": "⚒️",
+        "name": "Улучшение оружия",
+        "price": 2000,
+        "desc": f"+{WEAPON_UPGRADE_BONUS}% точности для выбранного оружия (можно улучшать несколько раз)",
+    },
+}
 # Premium shot packs purchasable with Telegram Stars.
 PREMIUM_PACKS: dict[str, dict] = {
     "1":  {"shots": 1,  "stars": 1, "title": "1 выстрел",       "desc": "1 платный выстрел без кулдауна, гарантированное попадание"},
