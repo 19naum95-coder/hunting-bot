@@ -532,7 +532,10 @@ async def hunt_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         ])
         cd = cooldown_remaining(user.get("last_hunt_time", 0))
         cd_text = "готова прямо сейчас" if cd <= 0 else f"через {format_remaining(cd)}"
-        await update.message.reply_html(
+                await update.message.reply_html(
             f"❓ Какой охотой воспользоваться?\n"
             f"🏹 Обычная — кулдаун 10 мин ({cd_text})\n"
-   
+            f"⭐ Платная — без кулдауна (осталось {user['premium_shots']} выстрелов)",
+            reply_markup=kb
+        )
+        return
