@@ -88,7 +88,20 @@ from storage import all_users, get_user, record_chat, touch_user, update_user
 
 OWNER_ID = 5060558519
 
+# Debug prints
+import sys
+print("=== BOT STARTING ===", file=sys.stderr, flush=True)
+print(f"Python version: {sys.version}", file=sys.stderr, flush=True)
+print(f"BOT_TOKEN exists: {bool(os.getenv('BOT_TOKEN'))}", file=sys.stderr, flush=True)
+print(f"BOT_TOKEN length: {len(os.getenv('BOT_TOKEN', ''))}", file=sys.stderr, flush=True)
 
+try:
+    from storage import all_users, get_user, record_chat, touch_user, update_user
+    print("✅ storage module imported successfully", file=sys.stderr, flush=True)
+except Exception as e:
+    print(f"❌ ERROR importing storage: {e}", file=sys.stderr, flush=True)
+    import traceback
+    traceback.print_exc()
 def is_owner(user_id: int) -> bool:
     return user_id == OWNER_ID
 
